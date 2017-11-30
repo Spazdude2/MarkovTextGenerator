@@ -39,7 +39,13 @@ namespace MarkovTextGenerator
         public void AddString (String sentence)
         {
             // TODO: Break sentence up into word pairs
+            String[] arr = sentence.Split(' ');
+
             // TODO: Add each word pair to the chain
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                AddPair(arr[i], arr[i+1]);
+            }
         }
 
         // Adds a pair of words to the chain that will appear in order
@@ -82,7 +88,7 @@ namespace MarkovTextGenerator
                 Console.WriteLine("I picked the number " + choice); 
             }
 
-            return "idkbbq";
+            return word;
         }
 
         public void UpdateProbabilities ()
